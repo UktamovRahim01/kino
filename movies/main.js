@@ -23,12 +23,15 @@
 
 // setupCounter(document.querySelector('#counter'))
 
-
+import { now_cinima, grabScroll } from "./.components/Now_cinema/index.js";
 
 
 const cont = document.querySelector(`.now_kino`);
 fetch(
+  //  "https://api.themoviedb.org/3/movie/movie_id?language=en-US",
+
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+  
   {
     headers: {
       Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
@@ -36,33 +39,20 @@ fetch(
   }
 )
   .then((res) => res.json())
-  .then((res) => reloud(res.results))
+  .then((res) => now_cinima(res.results, cont))
 
-function reloud(arr) {
-  cont.innerHTML = ``
+  const janr = document.querySelector(`.janr`);
 
-  for (const item of arr) {
+  grabScroll(janr)
 
-    let img_box = document.createElement(`div`)
-    let img = document.createElement(`img`)
-    let btn = document.createElement(`butten`)
 
-    img_box.classList.add(`img_box`)
-    btn.classList.add(`btn_now_kino`)
 
-    btn.innerHTML = "Подробнее"
-    img.src = `https://image.tmdb.org/t/p/original` + item.poster_path
 
-    cont.append(img_box)
-    img_box.append(img)
 
-    img_box.onmousemove = () => ({
-    
-       
-    })
 
-  }
 
-  console.log(arr);
-}
 
+
+
+
+  
