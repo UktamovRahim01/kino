@@ -35,20 +35,34 @@ export function now_cinima(arr, plase) {
             .then((res) => res.json())
             .then((res) => {
                 let info_ganr_tx = ``
-                for (const el of arr[i].genre_ids) {    
+                for (const el of arr[i].genre_ids) {
                     const genres = res.genres.filter(obj => obj.id === el);
-                    info_ganr_tx =  info_ganr_tx + genres[0].name + `, `
+                    info_ganr_tx = info_ganr_tx + genres[0].name + `, `
                 }
                 info_ganr.innerHTML = info_ganr_tx.slice(0, -2)
             })
 
         plase.append(img_box)
-        img_box.append(img, info)
+        img_box.append(img, btn, info)
         info.append(info_name, info_ganr)
         img_box.onmousemove = () => ({
 
 
         })
+
+        // const img_box = document.querySelector(".image-container");
+        // const image = img_box.querySelector(".image");
+        const hoverButton = img_box.querySelector(".hover-button");
+
+        img_box.addEventListener("mouseenter", () => {
+            btn.style.opacity = "1";
+            img.style.filter = "brightness(0.5)"; // Затемнение изображения
+        });
+
+        img_box.addEventListener("mouseleave", () => {
+            btn.style.opacity = "0";
+            img.style.filter = "brightness(1)"; // Возврат нормальной яркости изображения
+        });
 
     }
 
