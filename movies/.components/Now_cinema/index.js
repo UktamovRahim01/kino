@@ -1,6 +1,6 @@
 export function now_cinima(arr, plase) {
     plase.innerHTML = ``
-
+let bg_poster = document.querySelector(`.bg_poster`)
     for (let i = 0; i < 8; i++) {
 
 
@@ -57,12 +57,19 @@ export function now_cinima(arr, plase) {
         img_box.addEventListener("mouseenter", () => {
             btn.style.opacity = "1";
             img.style.filter = "brightness(0.5)"; // Затемнение изображения
+            bg_poster.style.backgroundImage = arr[i].backdrop_path ? `url(https://image.tmdb.org/t/p/original${arr[i].backdrop_path})` : `url(/public/defoult-bg.png)`
         });
 
         img_box.addEventListener("mouseleave", () => {
             btn.style.opacity = "0";
             img.style.filter = "brightness(1)"; // Возврат нормальной яркости изображения
         });
+
+
+        btn.onclick = () => {
+                window.open("/page/cino_cart/?id=" + arr[i].id, '_blank')
+        }
+
 
     }
 
