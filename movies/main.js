@@ -24,7 +24,7 @@ const janr = document.querySelector(`.janr`);
 grabScroll(janr)
 
 
-
+// **********************************
 const popular_cinima_pl = document.querySelector(`.popular_film`);
 const popular_film_page = document.querySelector(`.popular_film_page`);
 
@@ -39,7 +39,7 @@ fetch(
   .then((res) => res.json())
   .then((res) => { popular_cinima(res.results, popular_cinima_pl, popular_film_page) })
 
-
+// ***************************
 const popular_actor_box = document.querySelector(`.popular_actor`);
 
 fetch(
@@ -52,7 +52,7 @@ fetch(
 )
   .then((res) => res.json())
   .then((res) => { popular_actor(res.results, popular_actor_box)})
-
+// ****************************
 
 
 

@@ -23,21 +23,21 @@
 // }
 
 // const page_title = document.querySelector("#page-title")
-const currentUrl = window.location.href;
-const url = new URL(currentUrl);
-const movieId = url.searchParams.get("id");
 // const API_KEY = 'f1d5beaab7f191450fc1bdd4b37d1f96';
-const bg_poster = document.querySelector('.bg_poster');
 
 // getData(`/movie/${movieId}?api_key=${API_KEY}&language=ru-RU`)
 //   .then(res => {
-//     let item = res.data
-//     console.log(item);
-//     // page_title.textContent = item.title
-//   })
-
-
-
+    //     let item = res.data
+    //     console.log(item);
+    //     // page_title.textContent = item.title
+    //   })
+    
+    
+    
+    const currentUrl = window.location.href;
+    const url = new URL(currentUrl);
+    const movieId = url.searchParams.get("id");
+    const bg_poster = document.querySelector('.bg_poster');
 
 
 fetch(
