@@ -75,7 +75,7 @@ let bg_poster = document.querySelector(`.bg_poster`)
 
 }
 
-
+// *********************************************************
 
 export function grabScroll(container) {
     let isDown = false;
@@ -107,5 +107,31 @@ export function grabScroll(container) {
 
 
 
+// *************************************
 
+
+export function treyler_vid(arr) {
+    console.log(arr[1].id);
+    
+
+
+    fetch(
+        `https://api.themoviedb.org/3/movie/${arr[0].id}/videos`,
+        {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((res) => res.results)
+.then((res) => {
+    let random = Math.round(Math.random()*res.length)
+    console.log(random);
+        let iframe = document.querySelector(`iframe`)
+        iframe.src = `https://www.youtube.com/embed/${res[random].key}`
+
+} )
+
+}
 

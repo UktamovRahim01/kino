@@ -84,7 +84,7 @@ export function popular_cinima(arr, plase, btn_box) {
 
 
 export function popular_actor(arr, plase, btn_box) {
-    console.log(arr);
+    // console.log(arr);
     plase.innerHTML = ``
 
     for (let i = 0; i < 2; i++) {
@@ -99,7 +99,7 @@ export function popular_actor(arr, plase, btn_box) {
 
         img_box.classList.add(`img_box`)
 
-        console.log(arr[i]);
+        // console.log(arr[i]);
         img.src = `https://image.tmdb.org/t/p/original` + arr[i].profile_path
 
 

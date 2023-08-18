@@ -1,6 +1,6 @@
 
 
-import { now_cinima, grabScroll } from "./.components/Now_cinema/index.js";
+import { now_cinima, grabScroll, treyler_vid } from "./.components/Now_cinema/index.js";
 import { popular_cinima, popular_actor } from "./.components/popular/index.js";
 
 
@@ -22,7 +22,21 @@ fetch(
 const janr = document.querySelector(`.janr`);
 
 grabScroll(janr)
+// *********************************
+const new_treyler_vids = document.querySelector(`.new_treyler_vids`);
 
+fetch(
+
+  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+
+  {
+    headers: {
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+    },
+  }
+)
+  .then((res) => res.json())
+  .then((res) => treyler_vid(res.results, cont))
 
 // **********************************
 const popular_cinima_pl = document.querySelector(`.popular_film`);
