@@ -334,12 +334,12 @@ body {
 }
 .popular_actor_list::-webkit-scrollbar-thumb {
   background-color: #3498db; /* Цвет бегунка */
-}
+/* } */
 
-.popular_actor_list::-webkit-scrollbar-thumb {
+/* .popular_actor_list::-webkit-scrollbar-thumb {
   
   background-color: #000000; /* Цвет полосы прокрутки */
-} */
+/* }  */
 
 
 .popular_actor_blok {
