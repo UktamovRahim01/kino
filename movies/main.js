@@ -65,11 +65,38 @@ fetch(
   }
 )
   .then((res) => res.json())
-  .then((res) => { popular_actor(res.results, popular_actor_box)})
+  .then((res) => { popular_actor(res.results, popular_actor_box) })
 // ****************************
 
 
 
 
 
+
+let search = `Elemental`;
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
+  const Input = document.querySelector("input");
+  const inputValue = Input.value;
+  
+  fetch(
+    `https://api.themoviedb.org/3/search/multi?&query=${inputValue}`,
+    {
+      headers: {
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+  
+      // popular_actor(res.results, popular_actor_box)
+    })
+
+});
 
