@@ -5,18 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="/movies/style.css"> -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.scss">
+    <link rel="stylesheet" href="../../style.scss">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
     <div class="container_cinema">
         <div class="header"></div>
+        <div class="cinema_box">
+
+            <div class="kino_promo">
+                <div class="kino_promo_poster_box">
+                    <img class="kino_promo_poster_img" src=""></img>
+                </div>
+                <div class="kino_promo_info">
+                    <p class="kino_promo_way">Главная &gt;Фильмы &gt; <span></span></p>
+                    <span class="kino_promo_name"></span>
+                    <span class="kino_promo_name_arig"></span>
+                    <div class="kino_promo_chart_box">
+                        <canvas id="myChart"></canvas>
+                        <!-- <span class="myChart_num"></span> -->
+                        <p>Kinoarea</p>
+                    </div>
+                    <p class="kino_promo_description"></p>
+                    <div class="kino_promo_info_btn_box">
+                        <button class="to_trayler">
+                            <img class="to_trayler_img" src="../../public/play 1.svg" alt="">
+                            Смотреть трейлер
+                        </button>
+                        <div class="soc">
+                            <img src="../../public/vk-logo.svg" alt="">
+                            <img src="../../public/instagram-logo.svg" alt="">
+                            <img src="../../public/facebook.svg" alt="">
+                            <img src="../../public/twitter.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="reyting_box">
+                <button class="like">
+                    <img src="../../public/like.svg" alt="">
+                </button>
+                <button class="dislike">
+                    <img src="../../public/dislike.svg" alt="">
+                </button>
+                <button class="favorites">
+                    <img src="../../public/heart1.svg" alt="">
+                </button>
+                <p> В избранном у <span></span> человек </p>
+            </div>
+
+            <div class="infor_box"></div>
+
+            <div class="Directors_box"></div>
+
+            <div class="movies_actor_box">
+                <div class="movies_actor_hed">
+                    <p>Популярные персоны</p>
+                    <button>Все актёры </button>
+                </div>
+                <div class="movies_actor"></div>
+            </div>
+
+            <div class="movies_posters_box">
+                <div class="movies_posters_hed">
+                    <p>Постеры к фильму</p>
+                    <button>Все постеры</button>
+                </div>
+                <span class="movies_posters_name"></span>
+                <div class="movies_posters"></div>
+            </div>
+
+        </div>
+
     </div>
     <div class="bg_poster"></div>
+
+
+
+
+
+    <footer>
+		<div class="container">
+
+		</div>
+	</footer>
+
+
+
+
+    <script src="../../modules/footer.js"></script>
     <script src="/.components/header/header.js"></script>
-<script src="./index.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

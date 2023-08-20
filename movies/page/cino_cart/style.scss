@@ -1,0 +1,410 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1E2538;
+    display: flex;
+    overflow-x: hidden;
+flex-direction: column;
+}
+
+.container_cinema {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ************************************************ */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.menu_box {
+    display: flex;
+    gap: 15px;
+}
+
+.menu_box a {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.user_box_search {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+
+.user_box_search img {
+    width: 100%;
+    height: 100%;
+}
+
+.user_box {
+    display: flex;
+    gap: 12px;
+}
+
+.user_box_sign {
+    cursor: pointer;
+    border-radius: 10px;
+    background: #3657CB;
+    box-shadow: 0px 0px 15px 0px rgba(72, 113, 255, 0.80);
+    color: white;
+    width: 138px;
+    height: 53px;
+}
+
+/* ******************************************** */
+
+.bg_poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    transition: 1s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(to top, #1e2538 10%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+
+.bg_poster.change {
+    animation: change 1s ease;
+}
+
+@keyframes change {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.7;
+    }
+}
+
+
+
+
+
+
+.container_cinema {
+    .cinema_box {
+        .kino_promo {
+            width: 100%;
+            height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 50px;
+
+            .kino_promo_poster_box {
+                width: 400px;
+                height: 540px;
+
+                .kino_promo_poster_img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .kino_promo_info {
+                max-width: 700px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                .kino_promo_way {
+                    color: #4F5B7C;
+                    font-size: 16px;
+                    font-weight: 500;
+
+                    span {
+                        color: #FFF;
+                    }
+                }
+
+                .kino_promo_name {
+                    color: #FFF;
+                    font-size: 65px;
+                    font-weight: 900;
+                }
+
+                .kino_promo_name_arig {
+                    color: #FFF;
+                    font-size: 25px;
+                    font-weight: 500;
+                }
+
+                .kino_promo_chart_box {
+                    width: 60px;
+                    height: 60px;
+                    // border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    gap: 8px;
+                    padding: 8px;
+
+                    #myChart {
+                        // background-color: rgba(25, 30, 46, 1.0);
+                        border-radius: 50%;
+
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    p {
+                        color: #FFF;
+                        font-size: 15px;
+                        font-weight: 500;
+                    }
+                }
+
+                .kino_promo_description {
+                    color: #FFF;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 166.5%;
+                }
+
+                .kino_promo_info_btn_box {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 35px;
+
+                    .to_trayler {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        border-radius: 10px;
+                        border: 2px solid #FFF;
+                        background: none;
+                        width: 240px;
+                        height: 65px;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: 700;
+                        cursor: pointer;
+                    }
+
+                    .soc {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 25px;
+
+                        img {
+                            width: 18px;
+                            height: auto;
+                            opacity: 0.6;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        .reyting_box {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            button {
+                background-color: rgba(27, 33, 51, 1);
+                width: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 0;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 5px;
+                // img {
+                // width: 25px;
+                // height: 25px;
+                // }
+            }
+
+            .like {
+                padding: 10px 15px 20px 15px;
+            }
+
+            .dislike {
+                padding: 20px 15px 10px 15px;
+            }
+
+            p {
+                color: #E8E9EB;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+        }
+
+        .infor_box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+
+            .grid-item {
+                color: white;
+            }
+
+            .grid-value {
+                color: green;
+            }
+        }
+
+        .movies_actor_box {
+            .movies_actor_hed {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 35px;
+
+                p {
+                    color: #FFF;
+                    font-size: 65px;
+                    font-weight: 900;
+                }
+
+                button {
+                    color: #FFF;
+                    font-size: 22px;
+                    font-weight: 700;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                }
+            }
+
+            .movies_actor {
+                display: grid;
+                margin: 0 auto;
+                width: 100%;
+                height: auto;
+                background-color: rgba(0, 0, 0, 0);
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 23px;
+                position: relative;
+                margin-bottom: 30px;
+
+                .actor_box_img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .actor_box_name {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .actor_box_name_ru {
+                        color: #FFF;
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+
+                    .actor_box_name_en {
+                        color: rgba(255, 255, 255, 0.70);
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+
+                    .actor_box_name_fl {
+                        color: #F2F60F;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+
+        }
+
+        .movies_posters_box {
+
+            .movies_posters_hed {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 35px;
+
+                p {
+                    color: #FFF;
+                    font-size: 65px;
+                    font-weight: 900;
+                }
+
+                button {
+                    color: #FFF;
+                    font-size: 22px;
+                    font-weight: 700;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                }
+            }
+
+            .movies_posters_name {
+                color: #FFF;
+                font-size: 25px;
+                font-weight: 600;
+            }
+
+            .movies_posters {
+                display: grid;
+                margin: 0 auto;
+                width: 100%;
+                height: auto;
+                background-color: rgba(0, 0, 0, 0);
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 5px;
+                position: relative;
+                margin-bottom: 30px;
+                margin-top: 30px;
+
+                .movies_poster {
+
+                    .movies_poster_img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+            }
+        }
+    }
+
+}

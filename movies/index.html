@@ -6,6 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.scss">
   <title>Vite App</title>
 </head>
 
@@ -36,23 +37,61 @@
         </div>
       </div>
       <div class="now_kino">
-
       </div>
-      <button class="now_kino_btn">Все новинки</button>
+      <!-- <button class="now_kino_btn">Все новинки</button> -->
     </div>
-    <div class="new_treyler_box">
+    <!-- <div class="new_treyler_box">
       <div class="new_treyler_hed">
         <p class="new_treyler_nam">Новые трейлеры</p>
         <p class="new_treyler_showall">Все трейлеры &rarr;</p>
       </div>
       <div class="new_treyler">
-        <div class="new_treyler_big_vid"></div>
-        <div class="new_treyler_vids">
+        <div class="new_treyler_big_vid">
+          
           <iframe src="" frameborder="0" allowfullscreen>
           </iframe>
         </div>
+        <div class="new_treyler_vids">
+          <div class="content__info">
+            <div class="content__info-left">
+              <h3 class="info__title"></h3>
+              <ul>
+                <li><a href="#"><img src="/public/vk-logo.svg" alt="vk-logo"></a></li>
+                <li><a href="#"><img src="/public/instagram-logo.svg" alt="instagram-logo"></a></li>
+                <li><a href="#"><img src="/public/facebook.svg" alt="facebook-logo"></a></li>
+                <li><a href="#"><img src="/public/twitter.svg" alt="twitter-logo"></a></li>
+              </ul>
+            </div>
+            <div class="content__info-right">
+              <div class="buttons">
+                <div class="like-button__box">
+                  <button class="like-button">
+                    <img src="/public/like.svg" alt="like">
+                  </button>
+                  <span class="likes-count">1213</span>
+                </div>
+                <div class="dislike-button__box">
+                  <button class="dislike-button">
+                    <img src="/public/dislike.svg" alt="dislike">
+                  </button>
+                  <span class="dislikes-count">12</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content__wrapper">
+            <div class="swiper-treyler">
+              <div class="swiper-container">
+                <div class="swiper-wrapper" id="swiperWrapper"></div>
+              </div>
+              <button id="prevButton">Previous</button>
+              <button id="nextButton">Next</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </div> -->
+
     <div class="popular_film_box">
       <div class="popular_film_hed">
         <p>Популярные фильмы</p>
@@ -92,6 +131,17 @@
     </div>
   </div>
 
+
+  <footer>
+		<div class="container">
+
+		</div>
+	</footer>
+
+
+
+
+  <script src="./modules/footer.js"></script>
   <script src="./.components/header/header.js"></script>
   <script type="module" src="/main.js"></script>
 </body>

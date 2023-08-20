@@ -1,6 +1,6 @@
 
 
-import { now_cinima, grabScroll, treyler_vid } from "./.components/Now_cinema/index.js";
+import { now_cinima} from "./.components/Now_cinema/index.js";
 import { popular_cinima, popular_actor } from "./.components/popular/index.js";
 
 
@@ -21,22 +21,43 @@ fetch(
 
 const janr = document.querySelector(`.janr`);
 
-grabScroll(janr)
+// grabScroll(janr)
 // *********************************
-const new_treyler_vids = document.querySelector(`.new_treyler_vids`);
 
-fetch(
+// ****************************
+// const new_treyler_vids = document.querySelector(`.new_treyler_vids`);
+// const iframe = document.querySelector(`iframe`)
 
-  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+// fetch(
 
-  {
-    headers: {
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
-    },
-  }
-)
-  .then((res) => res.json())
-  .then((res) => treyler_vid(res.results, cont))
+//   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+
+//   {
+//     headers: {
+//       Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+//     },
+//   }
+// )
+//   .then((res) => res.json())
+//   .then((res) => treyler_vid(res.results[0].id, iframe))
+
+
+
+
+// const content__wrapper = document.querySelector(`.swiper-treyler`)
+// fetch(
+
+//   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+
+//   {
+//     headers: {
+//       Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+//     },
+//   }
+// )
+//   .then((res) => res.json())
+//   .then((res) => treyler_vid(res.results, content__wrapper))
+
 
 // **********************************
 const popular_cinima_pl = document.querySelector(`.popular_film`);
@@ -99,4 +120,10 @@ form.addEventListener("submit", function(event) {
     })
 
 });
+
+
+
+// export const trailers_list = document.querySelector('.content__wrapper');
+// grabScroll(trailers_list)
+
 
