@@ -2,6 +2,7 @@
 
 import { now_cinima } from "./.components/Now_cinema/index.js";
 import { popular_cinima, popular_actor } from "./.components/popular/index.js";
+import { relod_treyler } from "./modules/treyler.js";
 
 
 const cont = document.querySelector(`.now_kino`);
@@ -91,6 +92,21 @@ fetch(
   .then((res) => { popular_actor(res.results, popular_actor_box) })
 // ****************************
 
+const trailers = document.querySelector(`.new-trailers`);
+
+fetch(
+  // `https://api.themoviedb.org/3//movie/${item.id}/videos`,
+  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+  {
+    headers: {
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+    },
+  }
+)
+  .then((res) => res.json())
+  .then((res) => { 
+    console.log(res.results);
+    relod_treyler(res.results, trailers)})
 
 
 
@@ -116,7 +132,6 @@ form.addEventListener("submit", function (event) {
   )
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
       
       // popular_actor(res.results, popular_actor_box)
     })
