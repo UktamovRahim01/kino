@@ -8,7 +8,7 @@ body {
     background-color: #1E2538;
     display: flex;
     overflow-x: hidden;
-flex-direction: column;
+    flex-direction: column;
 }
 
 .container_cinema {
@@ -408,3 +408,72 @@ flex-direction: column;
     }
 
 }
+
+
+
+/* ********************************** */
+.sicvel_film_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .sicvel_film {
+        display: flex;
+        gap: 15px;
+    }
+
+    .sicvel_film_hed {
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0 27px;
+    }
+
+    .sicvel_film_page {
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .srel {
+        background: none;
+        border: none;
+        width: 33px;
+        color: white;
+        cursor: pointer;
+        font-size: 23px;
+        height: auto;
+    }
+
+
+
+    .sicvel_film_hed p {
+        color: #FFF;
+        font-size: 65px;
+        font-weight: 900;
+    }
+
+
+
+    .img_box {
+        width: 300px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
+
+
+
+
+
+/* ******************************** */

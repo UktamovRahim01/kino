@@ -1,3 +1,11 @@
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+
 export function popular_cinima(arr, plase, btn_box) {
     plase.innerHTML = ``
     let btn_Arr = btn_box.querySelectorAll(`button`)
@@ -83,7 +91,7 @@ export function popular_cinima(arr, plase, btn_box) {
 
 
 
-export function popular_actor(arr, plase, btn_box) {
+export function popular_actor(arr, plase, btn_box ) {
     // console.log(arr);
     plase.innerHTML = ``
 
@@ -141,7 +149,7 @@ export function popular_actor(arr, plase, btn_box) {
 
         popular_actor_blok_name.innerHTML = arr[k].name
         popular_actor_blok_popularity.innerHTML = `популярность ` + arr[k].popularity
-        popular_actor_blok_num.innerHTML = k+1 + `-е место`
+        popular_actor_blok_num.innerHTML = k + 1 + `-е место`
 
         popular_actor_line.classList.add(`popular_actor_line`)
         popular_actor_blok.classList.add(`popular_actor_blok`)
@@ -161,6 +169,9 @@ export function popular_actor(arr, plase, btn_box) {
         }
     }
 
-plase.append(popular_actor_list)
+    plase.append(popular_actor_list)
 
 }
+
+
+// ********************************************

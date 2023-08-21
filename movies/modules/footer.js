@@ -29,7 +29,7 @@ privacyLabel.className = 'custom-checkbox';
 checkboxSpan.className = 'checkmark';
 
 mailingForm.action = '';
-mailingLogoImage.src = '../public/cinema_logo.svg';
+mailingLogoImage.src = '../../public/cinema_logo.svg';
 mailingLogoImage.alt = 'Kinoarea';
 emailInput.placeholder = 'Введите свой E-mail адрес';
 emailInput.type = 'email';

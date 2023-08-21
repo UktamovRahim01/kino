@@ -1,3 +1,9 @@
+// import { popular_cinima } from "../../.components/popular/index.js";
+
+// import {popular_cinima} from "/.components/popular/index.js/";
+
+
+
 let haed = {
     headers: {
         Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
@@ -115,40 +121,40 @@ fetch(
 let movies_actor = document.querySelector(`.movies_actor`)
 function reloud_act(arr) {
     for (let i = 0; i < 10; i++) {
-      let film_name = arr[i].character
+        let film_name = arr[i].character
         fetch(
             `https://api.themoviedb.org/3/person/${arr[i].id}`,
             haed
         )
             .then((res) => res.json())
             .then((res) => {
-            
-
-            
-            let actor_box = document.createElement(`div`)
-            let actor_box_img = document.createElement(`img`)
-            let actor_box_name = document.createElement(`div`)
-            let actor_box_name_ru = document.createElement(`span`)
-            let actor_box_name_en = document.createElement(`span`)
-            let actor_box_name_fl = document.createElement(`span`)
-
-            actor_box.classList.add(`actor_box`)
-            actor_box_img.classList.add(`actor_box_img`)
-            actor_box_name.classList.add(`actor_box_name`)
-            actor_box_name_ru.classList.add(`actor_box_name_ru`)
-            actor_box_name_en.classList.add(`actor_box_name_en`)
-            actor_box_name_fl.classList.add(`actor_box_name_fl`)
-
-            actor_box_img.src = `https://image.tmdb.org/t/p/original${res.profile_path}`
-
-            actor_box_name_ru.innerHTML = res.also_known_as[0]
-            actor_box_name_en.innerHTML = arr[i].name
-            actor_box_name_fl.innerHTML = film_name
 
 
-            movies_actor.append(actor_box)
-            actor_box.append(actor_box_img, actor_box_name)
-            actor_box_name.append(actor_box_name_ru, actor_box_name_en, actor_box_name_fl)
+
+                let actor_box = document.createElement(`div`)
+                let actor_box_img = document.createElement(`img`)
+                let actor_box_name = document.createElement(`div`)
+                let actor_box_name_ru = document.createElement(`span`)
+                let actor_box_name_en = document.createElement(`span`)
+                let actor_box_name_fl = document.createElement(`span`)
+
+                actor_box.classList.add(`actor_box`)
+                actor_box_img.classList.add(`actor_box_img`)
+                actor_box_name.classList.add(`actor_box_name`)
+                actor_box_name_ru.classList.add(`actor_box_name_ru`)
+                actor_box_name_en.classList.add(`actor_box_name_en`)
+                actor_box_name_fl.classList.add(`actor_box_name_fl`)
+
+                actor_box_img.src = `https://image.tmdb.org/t/p/original${res.profile_path}`
+
+                actor_box_name_ru.innerHTML = res.also_known_as[0]
+                actor_box_name_en.innerHTML = arr[i].name
+                actor_box_name_fl.innerHTML = film_name
+
+
+                movies_actor.append(actor_box)
+                actor_box.append(actor_box_img, actor_box_name)
+                actor_box_name.append(actor_box_name_ru, actor_box_name_en, actor_box_name_fl)
             })
     }
 }
@@ -166,24 +172,122 @@ fetch(
     // .then((res) => {movies_posters_name.innerHTML = res.original_title})
     // .then((res) => res.images.posters)
     .then((res) => {
-        console.log(res)
         reloud_posters(res)
     })
 
-    function reloud_posters(arr) {
-        movies_posters_name.innerHTML = arr.original_title
-        
-        for (let i = 0; i < 4; i++) {
-            let item = arr.images.posters[i].file_path
-            let movies_poster = document.createElement(`div`)
-            let movies_poster_img = document.createElement(`img`)
+function reloud_posters(arr) {
+    movies_posters_name.innerHTML = arr.original_title
 
-            movies_poster.classList.add(`movies_poster`)
-            movies_poster_img.classList.add(`movies_poster_img`)
+    for (let i = 0; i < 4; i++) {
+        let item = arr.images.posters[i].file_path
+        let movies_poster = document.createElement(`div`)
+        let movies_poster_img = document.createElement(`img`)
 
-            movies_poster_img.src =  `https://image.tmdb.org/t/p/original${item}`
+        movies_poster.classList.add(`movies_poster`)
+        movies_poster_img.classList.add(`movies_poster_img`)
 
-            movies_poster.append(movies_poster_img)
-            movies_posters.append(movies_poster)
+        movies_poster_img.src = `https://image.tmdb.org/t/p/original${item}`
+
+        movies_poster.append(movies_poster_img)
+        movies_posters.append(movies_poster)
+    }
+}
+
+// **************************************
+
+const sicvel_film = document.querySelector(`.sicvel_film`);
+const sicvel_film_page = document.querySelector(`.sicvel_film_page`);
+
+fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?`,
+    {
+        headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+        },
+    }
+)
+    .then((res) => res.json())
+    .then((res) => {
+        // console.log(res.results);
+        popular_cinima(res.results, sicvel_film, sicvel_film_page)
+    })
+
+
+
+    function popular_cinima(arr, plase, btn_box) {
+        plase.innerHTML = ``
+        let btn_Arr = btn_box.querySelectorAll(`button`)
+        let col_vo = +btn_box.querySelector(`.page_num`).innerHTML
+        btn_box.querySelector(`.page_sum`).innerHTML = Math.round(arr.length / 4)
+        let pg_num = +btn_box.querySelector(`.page_sum`).innerHTML
+    
+    
+        for (let i = (col_vo - 1) * 4; i < col_vo * 4; i++) {
+    
+    
+            let img_box = document.createElement(`div`)
+            let img = document.createElement(`img`)
+            let btn = document.createElement(`butten`)
+            let info = document.createElement(`div`)
+            let info_name = document.createElement(`p`)
+            let info_ganr = document.createElement(`p`)
+    
+            img_box.classList.add(`img_box`)
+            btn.classList.add(`btn_now_kino`)
+    
+            btn.innerHTML = "Подробнее"
+            img.src = `https://image.tmdb.org/t/p/original` + arr[i].poster_path
+    
+    
+            info.classList.add(`info_img_box`)
+            info_name.classList.add(`nc_name`)
+            info_ganr.classList.add(`nc_ganr`)
+    
+            info_name.innerHTML = arr[i].title
+    
+            fetch(
+                "https://api.themoviedb.org/3/genre/movie/list?language=en",
+                {
+                    headers: {
+                        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+                    },
+                }
+            )
+                .then((res) => res.json())
+                .then((res) => {
+                    let info_ganr_tx = ``
+                    for (const el of arr[i].genre_ids) {
+                        const genres = res.genres.filter(obj => obj.id === el);
+                        info_ganr_tx = info_ganr_tx + genres[0].name + `, `
+                    }
+                    info_ganr.innerHTML = info_ganr_tx.slice(0, -2)
+                })
+    
+            plase.append(img_box)
+            img_box.append(img, info)
+            info.append(info_name, info_ganr)
+            img_box.onmousemove = () => ({
+    
+    
+            })
+    
         }
+    
+    
+        btn_Arr[0].onclick = () => {
+            if (col_vo > 1) {
+                btn_box.querySelector(`.page_num`).innerHTML = col_vo - 1
+    
+                popular_cinima(arr, plase, btn_box)
+            }
+        }
+        btn_Arr[1].onclick = () => {
+            if (col_vo < pg_num) {
+                btn_box.querySelector(`.page_num`).innerHTML = col_vo + 1
+    
+                popular_cinima(arr, plase, btn_box)
+            }
+        }
+    
+    
     }

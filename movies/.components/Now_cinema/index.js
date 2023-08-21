@@ -3,11 +3,12 @@ import 'swiper/css';
 
 
 let now_cinima_length = 8
-export function now_cinima(arr, plase) {
+export function now_cinima(arr, plase, now_kino_btn) {
     plase.innerHTML = ``
-    let btn = document.querySelector(`.now_kino_btn`)
-    plase.parentElement.querySelector(`button`).remove()
+    // now_kino_btn.innerHTML = ``
     let bg_poster = document.querySelector(`.bg_poster`)
+    let par_plase = plase.parentElement
+    
     for (let i = 0; i < now_cinima_length; i++) {
 
 
@@ -80,26 +81,24 @@ export function now_cinima(arr, plase) {
 
     }
 
-    let par_plase = plase.parentElement
-    let now_kino_btn = document.createElement(`button`)
     if (now_cinima_length === 8) {
         now_kino_btn.innerHTML = `Все новинки`
     }
     else {
         now_kino_btn.innerHTML = `Скрыть`
     }
-    now_kino_btn.classList.add(`now_kino_btn`)
-    par_plase.append(now_kino_btn)
+    // par_plase.append(now_kino_btn)
     now_kino_btn.onclick = () => {
         if (now_cinima_length === 8) {
             now_cinima_length = arr.length
-            now_cinima(arr, plase)
+            now_cinima(arr, plase, now_kino_btn)
         }
         else {
             now_cinima_length = 8
-            now_cinima(arr, plase)
+            now_cinima(arr, plase, now_kino_btn)
         }
     }
+
 }
 
 // *********************************************************
