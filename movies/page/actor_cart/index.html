@@ -5,17 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.scss">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../style.scss">
 
 </head>
 
 <body>
     <div class="container_cinema">
         <div class="header"></div>
+
+        <div class="actor_promo">
+            <div class="actor_promo_poster_box">
+                <img class="actor_promo_poster_img" src=""></img>
+            </div>
+            <div class="actor_promo_info">
+                <p class="actor_promo_way">Главная &gt;Актёры &gt; <span></span></p>
+                <span class="actor_promo_name"></span>
+                <span class="actor_promo_name_arig"></span>
+
+                <div class="swipe__buttons">
+                    <button data-activity="information" class="information-button active">Информация</button>
+                    <button data-activity="biograph" class="biography-button ">Биография</button>
+                </div>
+                <div class="about-actor">
+                    <div class="actor-information active">
+                        <ul class="information-list">
+                            <li>
+                                <span>Карьера:</span> <span data-infor="known_for_department" class="info_list">-</span>
+                            </li>
+                            <li>
+                                <span>Дата рождения:</span> <span data-infor="birthday" class="info_list">-</span>
+                            </li>
+                            <li>
+                                <span>Место рождения:</span> <span data-infor="place_of_birth"
+                                    class="info_list">-</span>
+                            </li>
+                            <li>
+                                <span>Личная страница:</span> <span data-infor="homepage" class="info_list">-</span>
+                            </li>
+                            <li>
+                                <span>Дата смерти:</span> <span data-infor="" class="info_list">-</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="actor-biography">
+                        <p class="biography">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="best_movies_box">
+            <div class="best_movies_hed">
+                <p>Лучшие фильмы</p>
+                <div class="best_movies_film_page">
+                    <button class="srel"> &larr;</button>
+                    <p class="page_num">1</p>
+                    <p>/</p>
+                    <p class="page_sum">5</p>
+                    <button class="srel"> &rarr;</button>
+                </div>
+            </div>
+            <div class="best_movies_films"></div>
+        </div>
+
+        <div class="actor_img_box">
+            <div class="best_movies_hed">
+                <p>Фото</p>
+                <a href="#">
+                    <span>Все фото</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="16" viewBox="0 0 27 16" fill="none">
+                        <path
+                            d="M26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.2929L20.3431 0.928934C19.9526 0.53841 19.3195 0.538409 18.9289 0.928934C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM-8.74228e-08 9L26 9L26 7L8.74228e-08 7L-8.74228e-08 9Z"
+                            fill="white" />
+                    </svg>
+                </a>
+
+            </div>
+            <div class="actor_img_grid"></div>
+        </div>
+
+        <div class="all_actor_films_box">
+            <div class="all_actor_films_hed">
+                <p>Фильмы</p>
+            </div>
+            <div class="all_actor_films"></div>
+        </div>
     </div>
-    <div class="img_big_box"></div>
+
+
+
+
+
     <script src="/.components/header/header.js"></script>
-<script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>

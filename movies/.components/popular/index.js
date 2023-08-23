@@ -10,7 +10,7 @@ export function popular_cinima(arr, plase, btn_box) {
     plase.innerHTML = ``
     let btn_Arr = btn_box.querySelectorAll(`button`)
     let col_vo = +btn_box.querySelector(`.page_num`).innerHTML
-    btn_box.querySelector(`.page_sum`).innerHTML = arr.length / 4
+    btn_box.querySelector(`.page_sum`).innerHTML = Math.ceil(arr.length / 4)
     let pg_num = +btn_box.querySelector(`.page_sum`).innerHTML
 
 
@@ -24,11 +24,13 @@ export function popular_cinima(arr, plase, btn_box) {
         let info_name = document.createElement(`p`)
         let info_ganr = document.createElement(`p`)
 
+
         img_box.classList.add(`img_box`)
         btn.classList.add(`btn_now_kino`)
 
         btn.innerHTML = "Подробнее"
-        img.src = `https://image.tmdb.org/t/p/original` + arr[i].poster_path
+        // img.src = `https://image.tmdb.org/t/p/original` + arr[i].poster_path
+        img.src =  arr[i].poster_path ? `https://image.tmdb.org/t/p/original${ arr[i].poster_path}` : `/public/free_poster.svg`
 
 
         info.classList.add(`info_img_box`)
@@ -56,14 +58,36 @@ export function popular_cinima(arr, plase, btn_box) {
             })
 
         plase.append(img_box)
-        img_box.append(img, info)
+        img_box.append(img, btn, info)
         info.append(info_name, info_ganr)
         img_box.onmousemove = () => ({
 
 
         })
 
+
+
+        img_box.addEventListener("mouseenter", () => {
+            btn.style.opacity = "1";
+            img.style.filter = "brightness(0.5)"; // Затемнение изображения
+        });
+
+        img_box.addEventListener("mouseleave", () => {
+            btn.style.opacity = "0";
+            img.style.filter = "brightness(1)"; // Возврат нормальной яркости изображения
+        });
+
+
+        btn.onclick = () => {
+            window.open("/page/cino_cart/?id=" + arr[i].id, '_blank')
+        }
+
+
     }
+
+
+
+
 
 
     btn_Arr[0].onclick = () => {
@@ -91,7 +115,7 @@ export function popular_cinima(arr, plase, btn_box) {
 
 
 
-export function popular_actor(arr, plase, btn_box ) {
+export function popular_actor(arr, plase, btn_box) {
     // console.log(arr);
     plase.innerHTML = ``
 
@@ -108,8 +132,8 @@ export function popular_actor(arr, plase, btn_box ) {
         img_box.classList.add(`img_box`)
 
         // console.log(arr[i]);
-        img.src = `https://image.tmdb.org/t/p/original` + arr[i].profile_path
-
+        // img.src = `https://image.tmdb.org/t/p/original` + arr[i].profile_path
+        img.src =  arr[i].profile_path ? `https://image.tmdb.org/t/p/original${ arr[i].profile_path}` : `/public/free_poster.svg`
 
 
 
@@ -163,6 +187,7 @@ export function popular_actor(arr, plase, btn_box ) {
 
         popular_actor_list.append(popular_actor_blok, popular_actor_line)
 
+        // popular_actor_blok_name = `pointer`;
 
         popular_actor_blok_name.onclick = () => {
             window.open("/page/actor_cart/?id=" + arr[k].id, '_blank')

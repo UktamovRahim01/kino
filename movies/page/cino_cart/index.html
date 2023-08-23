@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div class="bg_poster"></div>
     <div class="container_cinema">
         <div class="header"></div>
         <div class="cinema_box">
@@ -81,51 +82,59 @@
                 <div class="movies_posters"></div>
             </div>
 
-            <!-- <div class="movies_cadr_box">
-                <div class="movies_cadr_hed">
-                    <p>Кадры из фильма</p>
-                    <button>Все постеры</button>
-                </div>
-                <span class="movies_cadr_name"></span>
-                <div class="movies_cadr"></div>
-            </div> -->
+          
 
             <div class="sicvel_film_box">
                 <div class="sicvel_film_hed">
-                  <p>Сиквелы и приквелы</p>
+                    <p>Сиквелы и приквелы</p>
                 </div>
                 <div class="sicvel_film">
                 </div>
                 <div class="sicvel_film_page">
-                  <button class="srel"> &larr;</button>
-                  <p class="page_num">1</p>
-                  <p>/</p>
-                  <p class="page_sum">5</p>
-                  <button class="srel"> &rarr;</button>
+                    <button class="srel"> &larr;</button>
+                    <p class="page_num">1</p>
+                    <p>/</p>
+                    <p class="page_sum">5</p>
+                    <button class="srel"> &rarr;</button>
                 </div>
-              </div>
+            </div>
 
+            <div class="film_img_box">
+                <div class="best_movies_hed">
+                    <p>Кадры из фильма</p>
+                    <a href="#">
+                        <span>Все фото</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="16" viewBox="0 0 27 16" fill="none">
+                            <path
+                                d="M26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.2929L20.3431 0.928934C19.9526 0.53841 19.3195 0.538409 18.9289 0.928934C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM-8.74228e-08 9L26 9L26 7L8.74228e-08 7L-8.74228e-08 9Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+
+                </div>
+                <div class="film_img_grid"></div>
+            </div>
         </div>
 
     </div>
-    <div class="bg_poster"></div>
 
 
 
 
 
     <footer>
-		<div class="container">
+        <div class="container">
 
-		</div>
-	</footer>
+        </div>
+    </footer>
 
 
 
 
     <script src="../../modules/footer.js"></script>
     <script src="/.components/header/header.js"></script>
-    <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
