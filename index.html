@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.scss">
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div class="bg_poster"></div>
+  <div class="search"></div>
+  <div class="container_home">
+    <div class="header"></div>
+    <div class="now_kino_box">
+
+      <div class="now_kino_hed">
+        <p>Сейчас в кино</p>
+
+        <!-- <form action="">
+          <input type="text">
+          <button class="form"></button>
+
+        </form> -->
+
+        <div class="line"></div>
+        <div class="janr">
+          <a href="#">Все</a>
+          <a href="#">Боевики</a>
+          <a href="#">Приключения</a>
+          <a href="#">Комедии</a>
+          <a href="#">Фантастика</a>
+          <a href="#">Трилеры</a>
+          <a href="#">Драмы</a>
+        </div>
+      </div>
+      <div class="now_kino">
+      </div>
+      <button class="now_kino_btn"></button>
+    </div>
+
+    <section class="new-trailers">
+      <div class="new-trailers__header">
+        <div class="new-trailers__header-title">
+          <h2>Новые трейлеры</h2>
+        </div>
+        <div class="new-trailers__header-watchall">
+          <a href="#">
+            <span>Все трейлеры</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="16" viewBox="0 0 27 16" fill="none">
+              <path
+                d="M26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.2929L20.3431 0.928934C19.9526 0.53841 19.3195 0.538409 18.9289 0.928934C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM-8.74228e-08 9L26 9L26 7L8.74228e-08 7L-8.74228e-08 9Z"
+                fill="white" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="new-trailers__content">
+        <iframe src="" frameborder="0" allowfullscreen>
+        </iframe>
+        <div class="content__info">
+          <div class="content__info-left">
+            <h3 class="info__title"></h3>
+            <ul>
+              <li><a href="#"><img src="/public/vk-logo.svg" alt="vk-logo"></a></li>
+              <li><a href="#"><img src="/public/instagram-logo.svg" alt="instagram-logo"></a></li>
+              <li><a href="#"><img src="/public/facebook.svg" alt="facebook-logo"></a></li>
+              <li><a href="#"><img src="/public/twitter.svg" alt="twitter-logo"></a></li>
+            </ul>
+          </div>
+          <div class="content__info-right">
+            <div class="buttons">
+              <div class="like-button__box">
+                <button class="like-button">
+                  <img src="/public/like.svg" alt="like">
+                </button>
+                <span class="likes-count">1213</span>
+              </div>
+              <div class="dislike-button__box">
+                <button class="dislike-button">
+                  <img src="/public/dislike.svg" alt="dislike">
+                </button>
+                <span class="dislikes-count">12</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content__container">
+          <div id="custom-scrollbar" class="top-scrollbar"></div>
+          <div class="content__wrapper"></div>
+        </div>
+    </section>
+
+    <div class="popular_film_box">
+      <div class="popular_film_hed">
+        <p>Популярные фильмы</p>
+        <div class="line"></div>
+        <div class="date">
+          <a href="#">Все время</a>
+          <a href="#">2020</a>
+          <a href="#">2019</a>
+          <a href="#">2018</a>
+          <a href="#">2017</a>
+          <a href="#">2016</a>
+          <a href="#">2017</a>
+        </div>
+      </div>
+      <div class="popular_film">
+      </div>
+      <div class="popular_film_page">
+        <button class="srel"> &larr;</button>
+        <p class="page_num">1</p>
+        <p>/</p>
+        <p class="page_sum">5</p>
+        <button class="srel"> &rarr;</button>
+      </div>
+    </div>
+    <div class="popular_actor_box">
+      <div class="popular_actor_hed">
+        <p>Популярные персоны</p>
+        <div class="popular_actor_date">
+          <a href="#">За ГОД</a>
+          <a href="#">За месяц</a>
+          <a href="#">За неделю</a>
+        </div>
+      </div>
+      <div class="popular_actor">
+
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <div class="expected_box">
+        <div class="expected_hed">
+          <p>Популярные персоны</p>
+          <div class="expected_film_page">
+            <button class="srel"> &larr;</button>
+            <p class="page_num">1</p>
+            <p>/</p>
+            <p class="page_sum">5</p>
+            <button class="srel"> &rarr;</button>
+          </div>
+        </div>
+        <div class="expected_films"></div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="./modules/footer.js"></script>
+  <script src="./.components/header/header.js"></script>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
