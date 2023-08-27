@@ -162,7 +162,7 @@ body {
 
 .nc_name {
   color: #FFF;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -279,7 +279,7 @@ body {
 
 .now_kino_hed p {
   color: #FFF;
-  font-size: 65px;
+  font-size: 55px;
   font-weight: 900;
 }
 
@@ -291,7 +291,7 @@ body {
 
 .janr a {
   color: rgba(255, 255, 255, 0.35);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -354,7 +354,7 @@ body {
 
 .popular_actor_hed p {
   color: #FFF;
-  font-size: 65px;
+  font-size: 55px;
   font-weight: 900;
 }
 
@@ -366,7 +366,7 @@ body {
 
 .popular_actor_date a {
   color: rgba(255, 255, 255, 0.35);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -496,7 +496,7 @@ body {
 
 .popular_film_hed p {
   color: #FFF;
-  font-size: 65px;
+  font-size: 55px;
   font-weight: 900;
 }
 
@@ -513,7 +513,7 @@ body {
 
 .popular_film_hed .date a {
   color: rgba(255, 255, 255, 0.35);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -534,7 +534,7 @@ body {
 
 .new_treyler_nam {
   color: #FFF;
-  font-size: 65px;
+  font-size: 55px;
   font-weight: 900;
 }
 

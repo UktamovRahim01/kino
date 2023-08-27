@@ -5,10 +5,10 @@ import { rel_grid } from "/.components/grid_box/index.js";
 
 
 let img_big_box = document.querySelector(`.img_big_box`)
-let person_id = 1245
+// let person_id = 1245
 const currentUrl = window.location.href;
 const url = new URL(currentUrl);
-// const person_id = url.searchParams.get("id");
+const person_id = url.searchParams.get("id");
 const actor_promo = document.querySelector('.actor_promo');
 fetch(
     `https://api.themoviedb.org/3/person/${person_id}?language=ru-RU`,

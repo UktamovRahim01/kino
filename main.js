@@ -165,9 +165,9 @@ form.addEventListener("submit", function (event) {
 
 
   // ***************************
-  let searchs = document.querySelector(`.search`)
-let user_box_search = document.querySelector(`.user_box_search`)
-user_box_search.onclick = () => {
-  console.log(555);
-  searchs.style.display = `block`
-}
+//   let searchs = document.querySelector(`.search`)
+// let user_box_search = document.querySelector(`.user_box_search`)
+// user_box_search.onclick = () => {
+//   console.log(555);
+//   searchs.style.display = `block`
+// }

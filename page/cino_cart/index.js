@@ -243,3 +243,62 @@ fetch(
         rel_grid(res.backdrops, film_img_grid)
     })
 
+
+
+
+
+    
+// ***************
+let favorites = document.querySelector(`.favorites`)
+let img = favorites.querySelector(`img`)
+
+favorite(movieId, favorites)
+
+rel_like(img)
+function rel_like(img) {
+    let favorites = localStorage.getItem('favoriteMoves');
+    
+    if (!favorites) {
+        favorites = [];
+    } else {
+        favorites = JSON.parse(favorites);
+    }
+
+    let index = favorites.includes(movieId);
+
+    if (index) {
+        img.src = `/public/heart2.svg`
+    } else {
+        img.src = `/public/heart1.svg`
+    }
+
+
+}
+
+
+function favorite(movieId, btn) {
+    btn.onclick = () => {
+
+        let favorites = localStorage.getItem('favoriteMoves');
+
+        if (!favorites) {
+            favorites = [];
+        } else {
+            favorites = JSON.parse(favorites);
+        }
+
+        let index = favorites.indexOf(movieId);
+
+        if (index === -1) {
+            favorites.push(movieId);
+            console.log(`delite`);
+        } else {
+            favorites.splice(index, 1);
+            console.log(`add`);
+        }
+
+        localStorage.setItem('favoriteMoves', JSON.stringify(favorites));
+rel_like(img)
+    
+    }
+}
