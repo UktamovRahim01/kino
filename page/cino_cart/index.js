@@ -247,7 +247,7 @@ fetch(
 
 
 
-    
+
 // ***************
 let favorites = document.querySelector(`.favorites`)
 let img = favorites.querySelector(`img`)
@@ -257,7 +257,7 @@ favorite(movieId, favorites)
 rel_like(img)
 function rel_like(img) {
     let favorites = localStorage.getItem('favoriteMoves');
-    
+
     if (!favorites) {
         favorites = [];
     } else {
@@ -298,7 +298,7 @@ function favorite(movieId, btn) {
         }
 
         localStorage.setItem('favoriteMoves', JSON.stringify(favorites));
-rel_like(img)
-    
+        rel_like(img)
+
     }
 }
