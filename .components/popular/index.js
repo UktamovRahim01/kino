@@ -6,15 +6,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 
-export function popular_cinima(arr, plase, btn_box) {
+export function popular_cinima(arr, plase) {
     plase.innerHTML = ``
-    let btn_Arr = btn_box.querySelectorAll(`button`)
-    let col_vo = +btn_box.querySelector(`.page_num`).innerHTML
-    btn_box.querySelector(`.page_sum`).innerHTML = Math.ceil(arr.length / 4)
-    let pg_num = +btn_box.querySelector(`.page_sum`).innerHTML
+    // let btn_Arr = btn_box.querySelectorAll(`button`)
+    // let col_vo = +btn_box.querySelector(`.page_num`).innerHTML
+    // btn_box.querySelector(`.page_sum`).innerHTML = Math.ceil(arr.length / 4)
+    // let pg_num = +btn_box.querySelector(`.page_sum`).innerHTML
 
 
-    for (let i = (col_vo - 1) * 4; i < col_vo * 4; i++) {
+    for (let i = 0; i < arr.length; i++) {
 
 
         let img_box = document.createElement(`div`)
@@ -25,6 +25,7 @@ export function popular_cinima(arr, plase, btn_box) {
         let info_ganr = document.createElement(`p`)
 
 
+        img_box.classList.add(`swiper-slide`)
         img_box.classList.add(`img_box`)
         btn.classList.add(`btn_now_kino`)
 
@@ -90,20 +91,20 @@ export function popular_cinima(arr, plase, btn_box) {
 
 
 
-    btn_Arr[0].onclick = () => {
-        if (col_vo > 1) {
-            btn_box.querySelector(`.page_num`).innerHTML = col_vo - 1
+    // btn_Arr[0].onclick = () => {
+    //     if (col_vo > 1) {
+    //         btn_box.querySelector(`.page_num`).innerHTML = col_vo - 1
 
-            popular_cinima(arr, plase, btn_box)
-        }
-    }
-    btn_Arr[1].onclick = () => {
-        if (col_vo < pg_num) {
-            btn_box.querySelector(`.page_num`).innerHTML = col_vo + 1
+    //         popular_cinima(arr, plase, btn_box)
+    //     }
+    // }
+    // btn_Arr[1].onclick = () => {
+    //     if (col_vo < pg_num) {
+    //         btn_box.querySelector(`.page_num`).innerHTML = col_vo + 1
 
-            popular_cinima(arr, plase, btn_box)
-        }
-    }
+    //         popular_cinima(arr, plase, btn_box)
+    //     }
+    // }
 
 
 }

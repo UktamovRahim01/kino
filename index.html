@@ -5,17 +5,20 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./style.scss">
-  <link rel="stylesheet" href="/page/profile/style.scss">
-  <title>Vite App</title>
+  <link rel="stylesheet" href="/style.scss">
+  <link rel="stylesheet" href="/header.scss">
+  <!-- <link rel="stylesheet" href="/page/profile/style.scss"> -->
+  <title>Kinoarea</title>
 </head>
 
 <body>
   <div class="bg_poster"></div>
   <!-- <div class="search"></div> -->
-  <div class="container_home">
-    <div class="header"></div>
+  <!-- <fdiv class="container_home"> -->
+  <div class="container">
+    <header class="header"></header>
+
+
     <div class="now_kino_box">
 
       <div class="now_kino_hed">
@@ -91,30 +94,47 @@
         </div>
     </section>
 
-    <div class="popular_film_box">
-      <div class="popular_film_hed">
-        <p>Популярные фильмы</p>
-        <div class="line"></div>
-        <div class="date">
-          <a href="#">Все время</a>
-          <a href="#">2020</a>
-          <a href="#">2019</a>
-          <a href="#">2018</a>
-          <a href="#">2017</a>
-          <a href="#">2016</a>
-          <a href="#">2017</a>
+    <section class="popular-movies">
+      <div class="popular-movies__header">
+        <div class="popular-movies__header-title">
+          <h2>Популярные фильмы</h2>
+        </div>
+        <div class="popular-movies__header-line"></div>
+        <div class="popular-movies__header-categories">
+          <ul class="categories__list">
+            <li data-date="all">Все время</li>
+            <li data-date="2023">2023</li>
+            <li data-date="2022">2022</li>
+            <li data-date="2021">2021</li>
+            <li data-date="2020">2020</li>
+            <li data-date="2019">2019</li>
+          </ul>
         </div>
       </div>
-      <div class="popular_film">
+
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+        </div>
+
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+            <path
+              d="M26.0607 13.0607C26.6464 12.4749 26.6464 11.5251 26.0607 10.9393L16.5147 1.3934C15.9289 0.807611 14.9792 0.807611 14.3934 1.3934C13.8076 1.97919 13.8076 2.92893 14.3934 3.51472L22.8787 12L14.3934 20.4853C13.8076 21.0711 13.8076 22.0208 14.3934 22.6066C14.9792 23.1924 15.9289 23.1924 16.5147 22.6066L26.0607 13.0607ZM0 13.5L25 13.5V10.5L0 10.5L0 13.5Z"
+              fill="white" />
+          </svg>
+        </div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+            <path
+              d="M0.939341 10.9393C0.353554 11.5251 0.353554 12.4749 0.939341 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939341 10.9393ZM27 10.5L2 10.5V13.5L27 13.5V10.5Z"
+              fill="white" />
+          </svg>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="popular_film_page">
-        <button class="srel"> &larr;</button>
-        <p class="page_num">1</p>
-        <p>/</p>
-        <p class="page_sum">5</p>
-        <button class="srel"> &rarr;</button>
-      </div>
-    </div>
+    </section>
+
     <div class="popular_actor_box">
       <div class="popular_actor_hed">
         <p>Популярные персоны</p>
@@ -128,26 +148,36 @@
 
       </div>
     </div>
+  <!-- </div> -->
   </div>
 
 
   <footer>
     <div class="container">
-      <div class="expected_box">
-        <!-- <div class="expected_hed">
-          <p>Популярные персоны</p>
-          <div class="expected_film_page">
-            <button class="srel"> &larr;</button>
-            <p class="page_num">1</p>
-            <p>/</p>
-            <p class="page_sum">5</p>
-            <button class="srel"> &rarr;</button>
+
+      <section class="anticipated-movies">
+        <div class="anticipated-movies__header">
+          <div class="anticipated-movies__header-title">
+            <h2>Ожидаемые новинки</h2>
           </div>
-        </div> -->
-        <div class="expected_films"></div>
-      </div>
+        </div>
+
+        <div class="anticipated-movies__content">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </footer>
+
 
 
   <div class="login_box_vr">

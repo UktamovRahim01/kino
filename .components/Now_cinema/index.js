@@ -8,10 +8,10 @@ export function now_cinima(arr, plase, now_kino_btn) {
     // now_kino_btn.innerHTML = ``
     let bg_poster = document.querySelector(`.bg_poster`)
     let par_plase = plase.parentElement
-    
+
     for (let i = 0; i < now_cinima_length; i++) {
 
-
+        
         let img_box = document.createElement(`div`)
         let img = document.createElement(`img`)
         let btn = document.createElement(`butten`)

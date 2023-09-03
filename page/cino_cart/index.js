@@ -1,5 +1,6 @@
 import { popular_cinima } from "/.components/popular/index.js";
 import { rel_grid } from "/.components/grid_box/index.js";
+import { format, parseISO } from 'date-fns';
 
 
 
@@ -27,13 +28,17 @@ const kino_promo_description = document.querySelector(`.kino_promo_description`)
 const description = document.querySelector(`.kino_promo_chart_box p`)
 const reyting_box_span = document.querySelector(`.reyting_box span`)
 const ctx = document.getElementById("myChart").getContext("2d");
+const infor_box = document.querySelector(`.infor_box ul`)
 
 fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=ru-RU`,
     haed
 )
     .then((res) => res.json())
-    .then((res) => reloud_mov(res))
+    .then((res) =>{ 
+        reloud_mov(res)
+    cini_infor(res, infor_box)
+    })
 
 
 
@@ -51,6 +56,7 @@ let chart_color = {
     0: `rega(0,0,0,0)`,
 }
 function reloud_mov(arr) {
+    console.log(arr);
     let vote_average = Math.round(arr.vote_average * 100) / 100
     let vote_average_color = chart_color[Math.round(arr.vote_average)]
 
@@ -111,6 +117,65 @@ function reloud_mov(arr) {
 
 }
 
+function cini_infor(item, place) {
+    delete item.original_title
+    delete item.title
+    delete item.tagline
+    delete item.popularity
+    delete item.id
+    delete item.imdb_id
+    delete item.overview
+    delete item.backdrop_path
+    delete item.poster_path
+    delete item.video
+    for (const key in item) {
+        const element = item[key];
+
+        const li = document.createElement("li")
+        const span = document.createElement("span")
+        const value = document.createElement('span')
+        li.classList.add("list__item")
+        span.innerHTML = key.split("_",).join(" ") + ":"
+        li.append(span, value)
+
+
+        if (Array.isArray(element)) {
+            const data = element
+                .filter(item => item.name !== "")
+                .map(el => el.name)
+                .join(', ');
+            value.innerHTML = data
+            value.title = data
+            place.append(li)
+        } else if (typeof element == "string" && element) {
+            if (element.slice(0, 5) == "https") {
+                value.innerHTML = `<a target="_blank" href="${element}">${element}</a>`
+                value.title = element
+            } else if (key === "release_date") {
+                const releaseDate = parseISO(item.release_date);
+                const formattedDate = format(releaseDate, 'd MMMM yyyy');
+                value.innerHTML = formattedDate
+            } else {
+                value.innerHTML = element
+            }
+            place.append(li)
+        } else if (typeof element === 'number') {
+            if (key === "budget" || key === "revenue") {
+                value.innerHTML = element.toLocaleString() + " $"
+            } else {
+                value.innerHTML = element.toLocaleString()
+            }
+            place.append(li)
+        } else if (typeof element === 'boolean') {
+            if (element) {
+                value.innerHTML = "Да"
+            } else {
+                value.innerHTML = "Нет"
+            }
+            place.append(li)
+        }
+    }
+}
 
 
 fetch(
