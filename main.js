@@ -54,13 +54,13 @@ export const getData = async (path) => {
   }
 }
 
-const swiper_container = document.querySelector(".swiper")
-const swiper = document.querySelector(".swiper-wrapper")
+const swiper_container = document.querySelector(".popular-movies .swiper")
+const swiper = document.querySelector(".popular-movies .swiper-wrapper")
 const anticipated_swiper = document.querySelector(".anticipated-movies__content .swiper")
 const anticipated_swiper_container = document.querySelector(".anticipated-movies__content .swiper-wrapper")
 const popular_movies = document.querySelectorAll(".popular-movies .categories__list li")
 const swiperFunctions = reloadSwiper();
-
+console.log();
 function reloadSwiper() {
   let popular_movies_swipe = new Swiper(swiper_container, {
     modules: [Navigation, Pagination],
@@ -128,6 +128,58 @@ function reloadSwiper() {
 //   .then((res) => { 
 //   })
 
+
+getData(`/movie/upcoming?api_key=${API_KEY}&language=ru-RU`)
+	.then(res => {
+		popular_cinima(res.data.results, anticipated_swiper_container, true)
+
+		new Swiper(anticipated_swiper, {
+			modules: [Navigation, Pagination],
+			slidesPerView: 4,
+			slidesPerGroup: 4,
+			spaceBetween: 20,
+			grabCursor: true,
+			loop: true,
+
+			navigation: {
+				nextEl: ".anticipated-movies__content .swiper-button-next",
+				prevEl: ".anticipated-movies__content .swiper-button-prev",
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "fraction",
+			},
+			breakpoints: {
+				100: {
+					spaceBetween: 5,
+					slidesPerView: 1,
+					slidesPerGroup: 1,
+				},
+				300: {
+					spaceBetween: 10,
+					slidesPerView: 2,
+					slidesPerGroup: 2,
+				},
+				450: {
+					slidesPerGroup: 2,
+					slidesPerView: 2,
+					spaceBetween: 15,
+				},
+				800: {
+					slidesPerView: 3,
+					slidesPerGroup: 3,
+					spaceBetween: 15,
+				},
+				900: {
+					slidesPerView: 4,
+					slidesPerGroup: 4,
+					spaceBetween: 20,
+				}
+			},
+		});
+	})
+
+
 popular_movies.forEach(el => {
   popular_movies[0].classList.add("active")
   getData(`/movie/popular?api_key=${API_KEY}&language=ru-RU`)
@@ -141,7 +193,7 @@ popular_movies.forEach(el => {
     if (date === "all") {
       getData(`/movie/popular?api_key=${API_KEY}&language=ru-RU`)
         .then(res => {
-          reload(res.data.results, swiper)
+          popular_cinima(res.data.results, swiper)
           reloadSwiper(swiper_container)
           popular_movies.forEach(el => el.classList.remove("active"))
           el.classList.add("active")
@@ -151,7 +203,7 @@ popular_movies.forEach(el => {
         .then(res => {
           popular_movies.forEach(el => el.classList.remove("active"))
           el.classList.add("active")
-          reload(res.data.results, swiper)
+          popular_cinima(res.data.results, swiper)
           reloadSwiper(swiper_container)
         })
     }
@@ -226,23 +278,7 @@ form.addEventListener("submit", function (event) {
 
 
 // **********************************************************
-const expected_films_pl = document.querySelector(`.expected_films`);
-const expected_film_page = document.querySelector(`.expected_film_page`);
 
-fetch(
-  "https://api.themoviedb.org/3/movie/upcoming?&language=ru-RU",
-  {
-    headers: {
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
-    },
-  }
-)
-  .then((res) => res.json())
-  .then((res) => res.results)
-  .then((res) => {
-    console.log(res)
-    popular_cinima(res, expected_films_pl, expected_film_page)
-  })
 
 
 
