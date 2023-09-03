@@ -1416,6 +1416,16 @@ iframe {
     }
   }
 
+.popular_actor_hed{
+  flex-direction: column;
+}
+.popular-movies__header{
+  flex-direction: column;
+  .line {
+    display: none;
+  }
+}
+
   .popular_actor .img_box {
     height: 300px;
   }
