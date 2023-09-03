@@ -1,5 +1,11 @@
+const API_KEY = import.meta.env.VITE_API_KEY_2
+const AUTH_KEY = import.meta.env.VITE_API_KEY
 
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import axios from 'axios';
 
+// import { getData } from "/main.js";	
 
 
 
@@ -179,10 +185,10 @@ function reloadHeader(place) {
 
 
 	divUserFoto.onclick = () => {
-		location.assign(`/pages/profile/`)
+		location.assign(`/page/profile/`)
 	}
 	span1.onclick = () => {
-		location.assign(`/pages/profile/`)
+		location.assign(`/page/profile/`)
 	}
 
 	span2.onclick = () => {
@@ -239,7 +245,7 @@ function reloadHeader(place) {
 	if (user_auth) {
 		fetch(`https://api.themoviedb.org/3/account/${user_auth?.account_id}`, {
 			headers: {
-				Authorization: `Bearer ${AUTH_KEY}`,
+				Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`,
 				'Content-Type': "application/json"
 			},
 		})
@@ -416,9 +422,16 @@ function searchReload(place) {
 		e.preventDefault()
 
 		if (searchInput.value !== '') {
-			getData(`/search/multi?query=${searchInput.value}&language=ru-RU&page=1`)
+			fetch(`https://api.themoviedb.org/3/search/multi?query=${searchInput.value}&language=ru-RU`, {
+				headers: {
+					Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`,
+					// 'Content-Type': "application/json"
+				},
+			})
+				.then(res => res.json())
 				.then(res => {
-					let results = res.data.results
+
+					let results = res.results
 					if (results.length !== 0) {
 						reloadSearchComponents(results, search_wrapper)
 					} else {
@@ -515,9 +528,17 @@ function reloadSearchComponents(arr, place) {
 		rating.classList.add("rating")
 		all_genres.classList.add("genres")
 
-		getData(`/genre/movie/list?api_key=${API_KEY}&language=ru-RU`)
+
+		fetch(`https://api.themoviedb.org/3/genre/movie/list?language=ru-RU`, {
+			headers: {
+				Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`,
+				'Content-Type': "application/json"
+			},
+		})
+			.then(res => res.json())
 			.then(res => {
-				let genres = res.data.genres;
+
+				let genres = res.genres;
 				let finded = []
 				if (item.genre_ids) {
 					item.genre_ids.forEach(genre_id => {
@@ -539,13 +560,13 @@ function reloadSearchComponents(arr, place) {
 		} else if (item.profile_path) {
 			img.src = `https://image.tmdb.org/t/p/original${item.profile_path}`
 		} else {
-			img.src = `/public/default-poster.svg`
+			img.src = `/default-poster.svg`
 		}
 
 
 		console.log(item);
 		div.onclick = () => {
-			window.open("/pages/about-movie/?id=" + item.id, '_blank')
+			window.open("/page/cino_cart/?id=" + item.id, '_blank')
 		}
 
 		div.append(img_box, title_box, rating)
@@ -588,7 +609,7 @@ login_btn.onclick = () => {
 		method: 'POST',
 		dataType: 'json',
 		headers: {
-			Authorization: `Bearer ${AUTH_KEY}`,
+			Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`,
 			'Content-Type': "application/json"
 		},
 		start_time: new Date().getTime()
@@ -609,7 +630,7 @@ confirm_btn.onclick = () => {
 		method: 'POST',
 		dataType: 'json',
 		headers: {
-			Authorization: `Bearer ${AUTH_KEY}`,
+			Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`,
 			'Content-Type': "application/json"
 		},
 		body: JSON.stringify({

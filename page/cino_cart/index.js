@@ -1,11 +1,36 @@
 import { popular_cinima } from "/.components/popular/index.js";
-import { rel_grid } from "/.components/grid_box/index.js";
+
 import { format, parseISO } from 'date-fns';
 
+let AUTH_KEY = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`
+const API_KEY = import.meta.env.VITE_API_KEY_2
+
+import { ru } from 'date-fns/locale';
+import { Navigation, Pagination } from 'swiper/modules';
+import Swiper from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
+export const getData = async (path) => {
+    try {
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${AUTH_KEY}`
+            }
+        };
 
+        const res = await axios.get(`ttps://api.themoviedb.org/3` + path, options)
 
+        return res
+    } catch (e) {
+        // throw new Error('Something went wrong ' + e.message)
+    }
+}
 
 let haed = {
     headers: {
@@ -29,15 +54,17 @@ const description = document.querySelector(`.kino_promo_chart_box p`)
 const reyting_box_span = document.querySelector(`.reyting_box span`)
 const ctx = document.getElementById("myChart").getContext("2d");
 const infor_box = document.querySelector(`.infor_box ul`)
+const swiper_container = document.querySelector(".popular-movies .swiper")
+const swiper_wrapper = document.querySelector(".popular-movies .swiper-wrapper")
 
 fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=ru-RU`,
     haed
 )
     .then((res) => res.json())
-    .then((res) =>{ 
+    .then((res) => {
         reloud_mov(res)
-    cini_infor(res, infor_box)
+        cini_infor(res, infor_box)
     })
 
 
@@ -271,22 +298,78 @@ function reloud_posters(arr) {
 
 // **************************************
 
-const sicvel_film = document.querySelector(`.sicvel_film`);
-const sicvel_film_page = document.querySelector(`.sicvel_film_page`);
-
 fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/similar?`,
-    {
-        headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
-        },
-    }
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?language=ru-RU`,
+    haed
 )
     .then((res) => res.json())
     .then((res) => {
-        // console.log(res.results);
-        popular_cinima(res.results, sicvel_film, sicvel_film_page)
+        console.log(res);
+        popular_cinima(res.results, swiper_wrapper)
+        new Swiper(swiper_container, {
+            modules: [Navigation, Pagination],
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 20,
+            direction: 'horizontal',
+            grabCursor: true,
+            touchRatio: 1,
+            navigation: {
+                nextEl: ".popular-movies .swiper-button-next",
+                prevEl: ".popular-movies .swiper-button-prev",
+            },
+            pagination: {
+                el: ".popular-movies .swiper-pagination",
+                type: "fraction",
+            },
+            breakpoints: {
+                100: {
+                    spaceBetween: 5,
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                },
+                300: {
+                    spaceBetween: 10,
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                },
+                458: {
+                    slidesPerGroup: 2,
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                },
+                650: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
+                    spaceBetween: 15,
+                },
+                900: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4,
+                    spaceBetween: 20,
+                }
+            },
+        });
+
     })
+
+
+// const sicvel_film = document.querySelector(`.sicvel_film`);
+// const sicvel_film_page = document.querySelector(`.sicvel_film_page`);
+
+// fetch(
+//     `https://api.themoviedb.org/3/movie/${movieId}/similar?`,
+//     {
+//         headers: {
+//             Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0"
+//         },
+//     }
+// )
+//     .then((res) => res.json())
+//     .then((res) => {
+//         // console.log(res.results);
+//         popular_cinima(res.results, sicvel_film)
+//     })
 
 // *************************************************
 
@@ -366,4 +449,27 @@ function favorite(movieId, btn) {
         rel_like(img)
 
     }
+}
+
+
+
+export function rel_grid(arr, plase) {
+
+    for (let i = 0; i < 6; i++) {
+
+
+        let img_gr_box = document.createElement(`div`)
+        let img_gr_img = document.createElement(`img`)
+
+        img_gr_box.classList.add(`img_gr_box`)
+        if (i === 0 || i === 5) {
+            img_gr_box.classList.add(`large`)
+        }
+        // console.log(arr[i].file_path);
+        img_gr_img.src = arr[i] ? `https://image.tmdb.org/t/p/original${arr[i].file_path}` : `/public/free_poster.svg`
+        img_gr_box.append(img_gr_img)
+        plase.append(img_gr_box)
+    }
+
+
 }
