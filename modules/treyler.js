@@ -35,7 +35,7 @@ export function relod_treyler(arr, plase) {
                     banner_bg.classList.add("banner-bg")
                     polygon.classList.add("polygon")
 
-                    polygon.src = "/public/polygon.svg"
+                    polygon.src = "/polygon.svg"
                     thumbnailImage.src = el.poster_path ? `https://image.tmdb.org/t/p/original${el.backdrop_path}` : `/public/default-poster.jpg`
                     titleElement.textContent = el.title
 
