@@ -211,16 +211,17 @@ body {
   position: absolute;
   border-radius: 10px;
   width: 65%;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px 20px;
-  background-color: #ffffff;
-  color: #3657CB;
   border: none;
   cursor: pointer;
   text-align: center;
   opacity: 0;
+  background-color: #ffffff;
+  color: #3657CB;
+  font-size: 18px;
   transition: opacity 0.3s ease;
 }
 
@@ -295,6 +296,11 @@ body {
 .popular_film {
   display: flex;
   gap: 15px;
+
+  .img_box {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .popular_film_hed {
@@ -344,10 +350,7 @@ body {
 
 }
 
-.img_box {
-  width: 100%;
-  height: auto;
-}
+
 
 .popular_film_hed .date a {
   color: rgba(255, 255, 255, 0.35);
@@ -369,6 +372,8 @@ body {
   align-items: center;
   padding: 20px 0 27px;
 }
+
+
 
 .new_treyler_nam {
   color: #FFF;
@@ -431,7 +436,6 @@ iframe {
   height: auto;
 
   .img_box {
-    position: relative;
     width: 100%;
     height: 440px;
     opacity: 0.7;
@@ -439,6 +443,7 @@ iframe {
     flex-direction: column;
     object-fit: cover;
     overflow: hidden;
+    position: relative;
   }
 
   .img_box img {
@@ -565,6 +570,11 @@ iframe {
 
 
 // *********************************
+.now_kino {
+  .img_box img {
+  border-radius: 10px;
+}
+}
 
 .img_box {
   display: flex;
@@ -583,7 +593,9 @@ iframe {
 
 .img_box img {
   width: 100%;
-  height: 100%;
+  height: 400px;
+  border-radius: 10px;
+
 }
 
 .nc_name {
@@ -596,6 +608,7 @@ iframe {
   color: #F2F60F;
   font-size: 15px;
   font-weight: 400;
+  // }
 }
 
 // **********************
@@ -1416,15 +1429,139 @@ iframe {
     }
   }
 
-.popular_actor_hed{
-  flex-direction: column;
-}
-.popular-movies__header{
-  flex-direction: column;
-  .line {
-    display: none;
+  .now_kino .img_box img {
+    height: 350px;
   }
-}
+
+  .btn_now_kino {
+    font-size: 16px !important;
+  }
+
+  .new-trailers {
+    &__header {
+      h2 {
+        font-size: 40px;
+      }
+
+      margin-bottom: 30px;
+    }
+
+    &__content {
+      iframe {
+        height: 450px;
+        min-height: 250px;
+      }
+
+      .content__info {
+        gap: 5px;
+
+        &-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+
+          h3 {
+            width: 200px;
+            font-size: 25px;
+          }
+        }
+      }
+
+      .content__wrapper {
+        .item-thumbnail {
+          width: 240px !important;
+          height: 150px !important;
+        }
+
+        .item-title {
+          width: 200px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .popular-movies {
+    &__header {
+      h2 {
+        font-size: 34px;
+      }
+
+      &-line {
+        display: none;
+      }
+
+      &-categories {
+        max-width: 100%;
+
+        ul {
+          width: 100%;
+        }
+      }
+    }
+
+    .swiper {
+      user-select: none;
+      width: 100%;
+      padding-bottom: 50px;
+
+      .item-banner {
+        height: 100% !important;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        height: 350px !important;
+      }
+    }
+
+    &__content {
+      grid-template-columns: 1fr 1fr;
+
+      .item-banner {
+        height: 250px;
+      }
+
+      .item-rating {
+        padding: 5px;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      .item-about {
+        max-width: 100%;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .popular_actor_hed {
+    flex-direction: column;
+
+    p {
+      font-size: 40px;
+    }
+
+    .popular_actor_date a {
+      font-size: 16px !important;
+    }
+  }
+
+  .popular-movies__header {
+    flex-direction: column;
+
+    .line {
+      display: none;
+    }
+  }
 
   .popular_actor .img_box {
     height: 300px;
@@ -1432,6 +1569,64 @@ iframe {
 
   .popular_actor_list {
     height: 300px;
+  }
+
+  .anticipated-movies {
+    &__header {
+      h2 {
+        font-size: 32px;
+      }
+
+      &-line {
+        display: none;
+      }
+
+      &-categories {
+        max-width: 100%;
+
+        ul {
+          width: 100%;
+        }
+      }
+    }
+
+    .swiper {
+      user-select: none;
+      width: 100%;
+
+      .item-banner {
+        height: 100% !important;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        height: 350px !important;
+      }
+    }
+
+    &__content {
+      grid-template-columns: 1fr 1fr;
+
+      .item-banner {
+        height: 250px;
+      }
+
+      .item-rating {
+        padding: 5px;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      .item-about {
+        max-width: 100%;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
 
@@ -1446,6 +1641,89 @@ iframe {
       grid-column-end: 3;
     }
   }
+
+  .new-trailers {
+    &__header {
+      justify-content: center;
+      text-align: center;
+
+      h2 {
+        font-size: 32px;
+      }
+
+      margin-bottom: 30px;
+    }
+
+    &__content {
+      iframe {
+        height: 250px;
+        min-height: 250px;
+      }
+
+      .content__info {
+        gap: 5px;
+
+        &-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+
+          h3 {
+            width: 200px;
+            font-size: 25px;
+          }
+        }
+
+        &-right {
+          span {
+            font-size: 12px !important;
+          }
+
+          .buttons {
+            button {
+              width: 30px !important;
+              height: 30px !important;
+
+              img {
+                width: 15px !important;
+              }
+            }
+          }
+        }
+      }
+
+      .content__wrapper {
+        .item-thumbnail {
+          width: 200px !important;
+          height: 130px !important;
+        }
+
+        .item-title {
+          width: 200px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .popular_actor_hed {
+    flex-direction: column;
+
+    p {
+      font-size: 35px;
+    }
+
+    .popular_actor_date a {
+      font-size: 15px !important;
+    }
+  }
+
+  // .btn_now_kino {
+  //   font-size: 14px !important;
+  //   }
 }
 
 @media (max-width: 500px) {
@@ -1453,9 +1731,146 @@ iframe {
     grid-template-columns: 1fr 1fr;
   }
 
+  .btn_now_kino {
+    font-size: 10px !important;
+  }
 
+  .now_kino .img_box img {
+    height: 250px;
+    border-radius: 10px;
+  }
+
+  .popular-movies {
+    &__header {
+      h2 {
+        font-size: 34px;
+      }
+
+      &-line {
+        display: none;
+      }
+
+      &-categories {
+        max-width: 100%;
+
+        ul {
+          width: 100%;
+        }
+      }
+    }
+
+    .swiper {
+      user-select: none;
+      width: 100%;
+      padding-bottom: 50px;
+
+      .item-banner {
+        height: 100% !important;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        height: 290px !important;
+      }
+    }
+
+    &__content {
+      grid-template-columns: 1fr 1fr;
+
+      .item-banner {
+        height: 250px;
+      }
+
+      .item-rating {
+        padding: 5px;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      .item-about {
+        max-width: 100%;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
 
   .now_kino_hed p {
     font-size: 40px !important;
   }
+
+  .popular_actor_hed {
+    flex-direction: column;
+
+    p {
+      font-size: 28px;
+    }
+
+    .popular_actor_date a {
+      font-size: 14px !important;
+    }
+  }
+
+  .anticipated-movies {
+    &__header {
+      h2 {
+        font-size: 32px;
+      }
+
+      &-line {
+        display: none;
+      }
+
+      &-categories {
+        max-width: 100%;
+
+        ul {
+          width: 100%;
+        }
+      }
+    }
+
+    .swiper {
+      user-select: none;
+      width: 100%;
+
+      .item-banner {
+        height: 100% !important;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        height: 290px !important;
+      }
+    }
+
+    &__content {
+      grid-template-columns: 1fr 1fr;
+
+      .item-banner {
+        height: 250px;
+      }
+
+      .item-rating {
+        padding: 5px;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      .item-about {
+        max-width: 100%;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
 }
