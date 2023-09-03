@@ -12,7 +12,7 @@ export default defineConfig({
 				main: resolve(__dirname, 'index.html'),
 				profile: resolve(__dirname, 'page/profile/index.html'),
 				"actor_cart": resolve(__dirname, 'page/actor_cart/index.html'),
-				"movie_cart": resolve(__dirname, 'page/movie_cart/index.html'),
+				"movie_cart": resolve(__dirname, 'page/cino_cart/index.html'),
 			},
 		},
 	},
