@@ -159,7 +159,7 @@ function reload(item, place) {
 	title.innerHTML = item.name ? item.name : item.title
 	orig_title.innerHTML = item.original_name ? item.original_name : item.original_title
 	rating.innerHTML = item.vote_average ? (+item.vote_average).toFixed(2) : (+item.popularity).toFixed(2)
-	img.src = item.poster_path ? `https://image.tmdb.org/t/p/original${item.poster_path}` : `/public/default-poster.svg`
+	img.src = item.poster_path ? `https://image.tmdb.org/t/p/original${item.poster_path}` : `/default-poster.svg`
 
 	div.onclick = () => {
 		window.open("/page/cino_cart/?id=" + item.id, '_blank')

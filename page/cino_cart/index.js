@@ -39,7 +39,6 @@ let haed = {
 }
 
 
-// import { popular_cinima } from "../../.components/popular";
 
 const currentUrl = window.location.href;
 const url = new URL(currentUrl);

@@ -464,8 +464,14 @@ span{
   ul {
     display: grid !important;
     // grid-template-columns:  repeat(4, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(60px, 70px));
+    grid-template-columns: repeat(7, 1fr);
+    li {
+      padding: 10px !important;
+    }
   }
+}
+.actors-wrapper{
+  grid-template-columns: 1fr 1fr !important;
 }
   .user-avatar {
     min-width: 40px !important;
@@ -484,6 +490,9 @@ span{
   .information-list{
     width: 100px;
   }
+  .movies-wrapper, .actors-wrapper{
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -493,7 +502,7 @@ span{
     width: 200px;
     // text-overflow: ellipsis;
   }
-.information-list{
+.information-list, .actors-wrapper{
   grid-template-columns: 1fr !important;
 }
 
@@ -508,5 +517,7 @@ span{
 .wrapper-item div{
   width: 100% !important;
 }
-
+.movies-wrapper, .actors-wrapper{
+  font-size: 32px;
+}
 }
