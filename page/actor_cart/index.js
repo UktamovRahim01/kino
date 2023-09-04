@@ -55,9 +55,9 @@ fetch(
 		page_title.innerHTML = person.name 
 		bg_poster.style.backgroundImage = person.backdrop_path ? `url(https://image.tmdb.org/t/p/original${person.backdrop_path})` : `url(/public/default-bg.png)`
 		movie_banner.style.backgroundImage = person.profile_path ? `url(https://image.tmdb.org/t/p/original${person.profile_path})` : `url(/public/default-poster.jpg)`
-		movie_title.innerHTML =  person.also_known_as[0]
-		movie_location.innerHTML =  person.also_known_as[0]
-		movie_original_title.innerHTML = person.name
+		movie_title.innerHTML =   person.name 
+		movie_location.innerHTML =  person.name 
+		movie_original_title.innerHTML = person.also_known_as[0] 
 		movie_descripton.innerHTML = person.biography ? person.biography : "Биография отсутствует"
 		const formattedDate = format(parseISO(person.birthday), 'd MMMM yyyy');
 		birthday.innerHTML = `${formattedDate} (${(currentYear - parseISO(person.birthday).getFullYear())}) `
