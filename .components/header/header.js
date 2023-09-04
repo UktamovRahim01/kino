@@ -585,9 +585,6 @@ function reloadSearchComponents(arr, place) {
 function scrollTop() {
 	const scrollToTopBtn = document.createElement('button')
 	scrollToTopBtn.classList.add("scroll-top")
-	// const arrowTopImg = document.createElement("img")
-	// arrowTopImg.src = "/arrow-top.svg"
-	// scrollToTopBtn.append(arrowTopImg)
 	header.append(scrollToTopBtn)
 
 	window.addEventListener("scroll", () => {
