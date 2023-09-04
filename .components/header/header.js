@@ -563,10 +563,15 @@ function reloadSearchComponents(arr, place) {
 			img.src = `/default-poster.svg`
 		}
 
-
 		console.log(item);
 		div.onclick = () => {
-			window.open("/page/cino_cart/?id=" + item.id, '_blank')
+			if (item.media_type === "movie") {
+				window.open("/page/cino_cart/?id=" + item.id, '_blank')
+			}
+			else {
+				window.open("/page/actor_cart/?id=" + item.id, '_blank')
+
+			}
 		}
 
 		div.append(img_box, title_box, rating)

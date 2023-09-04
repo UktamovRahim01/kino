@@ -1,6 +1,5 @@
 import { popular_cinima } from "/.components/popular/index.js";
 import { rel_grid } from "/.components/grid_box/index.js";
-
 import { format, parseISO } from 'date-fns';
 
 let AUTH_KEY = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGNlNWQ1ZWFiYjllMTJlZWQ2NWVjNDFmYzk5YjMzNiIsInN1YiI6IjY0ZGE0MGJlZDEwMGI2MDBhZGEyODRhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DnzpD5IofvGBvsUcw084Jpw_W5WhXXGHvdAqukAAJF0`
@@ -88,8 +87,8 @@ function reloud_mov(arr) {
     let vote_average = Math.round(arr.vote_average * 100) / 100
     let vote_average_color = chart_color[Math.round(arr.vote_average)]
 
-    bg_poster.style.backgroundImage = arr.backdrop_path ? `url(https://image.tmdb.org/t/p/original${arr.backdrop_path})` : `url(/public/defoult-bg.png)`
-    kino_promo_poster_img.src = arr.poster_path ? `https://image.tmdb.org/t/p/original${arr.poster_path}` : `/public/free_poster.svg`
+    bg_poster.style.backgroundImage = arr.backdrop_path ? `url(https://image.tmdb.org/t/p/original${arr.backdrop_path})` : `url(/defoult-bg.png)`
+    kino_promo_poster_img.src = arr.poster_path ? `https://image.tmdb.org/t/p/original${arr.poster_path}` : `/free_poster.svg`
     kino_promo_way.innerHTML = arr.title
     kino_promo_name.innerHTML = arr.title
     kino_promo_name_arig.innerHTML = arr.original_title
@@ -243,7 +242,7 @@ function reloud_act(arr) {
                 actor_box_name_en.classList.add(`actor_box_name_en`)
                 actor_box_name_fl.classList.add(`actor_box_name_fl`)
 
-                actor_box_img.src = res.profile_path ? `https://image.tmdb.org/t/p/original${res.profile_path}` : `/public/free_poster.svg`
+                actor_box_img.src = res.profile_path ? `https://image.tmdb.org/t/p/original${res.profile_path}` : `/free_poster.svg`
 
                 actor_box_name_ru.innerHTML = res.also_known_as[0]
                 actor_box_name_en.innerHTML = arr[i].name
@@ -389,7 +388,7 @@ fetch(
     .then((res) => res.json())
     .then((res) => {
         console.log(res.backdrops);
-        rel_grid(res.backdrops, film_img_grid)
+        rel_grid(res.backdrops, film_img_grid, 5)
     })
 
 
@@ -416,9 +415,9 @@ function rel_like(img) {
     let index = favorites.includes(movieId);
 
     if (index) {
-        img.src = `/public/heart2.svg`
+        img.src = `/heart2.svg`
     } else {
-        img.src = `/public/heart1.svg`
+        img.src = `/heart1.svg`
     }
 
 
@@ -451,5 +450,6 @@ function favorite(movieId, btn) {
 
     }
 }
+
 
 

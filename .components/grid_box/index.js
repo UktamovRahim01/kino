@@ -1,4 +1,4 @@
-export function rel_grid(arr, plase) {
+export function rel_grid(arr, plase, n) {
 
     for (let i = 0; i < 6; i++) {
 
@@ -7,7 +7,7 @@ export function rel_grid(arr, plase) {
         let img_gr_img = document.createElement(`img`)
 
         img_gr_box.classList.add(`img_gr_box`)
-        if (i === 0 || i === 5) {
+        if (i === 0 || i === n) {
             img_gr_box.classList.add(`large`)
         }
         // console.log(arr[i].file_path);

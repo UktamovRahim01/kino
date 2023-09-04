@@ -131,7 +131,7 @@ function reloadSwiper() {
 
 getData(`/movie/upcoming?api_key=${API_KEY}&language=ru-RU`)
 	.then(res => {
-		popular_cinima(res.data.results, anticipated_swiper_container, true)
+		popular_cinima(res.data.results, anticipated_swiper_container)
 
 		new Swiper(anticipated_swiper, {
 			modules: [Navigation, Pagination],
