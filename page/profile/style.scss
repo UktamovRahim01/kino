@@ -171,7 +171,7 @@ img {
         margin-top: 10px;
         color: rgba(255, 255, 255, 0.8);
         font-size: 17px;
-        font-weight: 400;
+        font-weight: 275px;
       }
 
       .user-information {
@@ -485,10 +485,10 @@ span{
   }
   .user-description {
     flex-wrap: wrap;
-    width: 300px;
+    width: 350px;
   }
   .information-list{
-    width: 100px;
+    width: 200px;
   }
   .movies-wrapper, .actors-wrapper{
     font-size: 36px;
@@ -499,11 +499,12 @@ span{
   .user-description {
     flex-wrap: wrap;
     overflow-y:scroll ;
-    width: 200px;
+    width: 275px;
     // text-overflow: ellipsis;
   }
 .information-list, .actors-wrapper{
   grid-template-columns: 1fr !important;
+  width: 275px;
 }
 
 .wrapper-item{

@@ -560,7 +560,7 @@ function reloadSearchComponents(arr, place) {
 		} else if (item.profile_path) {
 			img.src = `https://image.tmdb.org/t/p/original${item.profile_path}`
 		} else {
-			img.src = `/default-poster.svg`
+			img.src = `/default-poster.jpg`
 		}
 
 		console.log(item);
