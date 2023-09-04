@@ -176,7 +176,7 @@ fetch(
     .then((res) => res.json())
     .then((res) => {
         // console.log(res.profiles);
-        rel_grid(res.profiles, actor_img_grid, 4)
+        rel_grid(res.profiles, actor_img_grid, 3)
     })
 
 
@@ -237,56 +237,56 @@ fetch(
 
 
 // ***************
-// let favorites = document.querySelector(`.favorites`)
-// let img = favorites.querySelector(`img`)
+let favorites = document.querySelector(`.add-to-favourite`)
+let img = favorites.querySelector(`img`)
 
-// favorite(person_id, favorites)
+favorite(person_id, favorites)
 
-// rel_like(img)
-// function rel_like(img) {
-//     let favorites = localStorage.getItem('favoriteActors');
+rel_like(img)
+function rel_like(img) {
+    let favorites = localStorage.getItem('favoriteActors');
     
-//     if (!favorites) {
-//         favorites = [];
-//     } else {
-//         favorites = JSON.parse(favorites);
-//     }
+    if (!favorites) {
+        favorites = [];
+    } else {
+        favorites = JSON.parse(favorites);
+    }
 
-//     let index = favorites.includes(person_id);
+    let index = favorites.includes(person_id);
 
-//     if (index) {
-//         img.src = `/heart2.svg`
-//     } else {
-//         img.src = `/heart1.svg`
-//     }
-
-
-// }
+    if (index) {
+        img.src = `/heart2.svg`
+    } else {
+        img.src = `/heart1.svg`
+    }
 
 
-// function favorite(person_id, btn) {
-//     btn.onclick = () => {
+}
 
-//         let favorites = localStorage.getItem('favoriteActors');
 
-//         if (!favorites) {
-//             favorites = [];
-//         } else {
-//             favorites = JSON.parse(favorites);
-//         }
+function favorite(person_id, btn) {
+    btn.onclick = () => {
 
-//         let index = favorites.indexOf(person_id);
+        let favorites = localStorage.getItem('favoriteActors');
 
-//         if (index === -1) {
-//             favorites.push(person_id);
-//             console.log(`delite`);
-//         } else {
-//             favorites.splice(index, 1);
-//             console.log(`add`);
-//         }
+        if (!favorites) {
+            favorites = [];
+        } else {
+            favorites = JSON.parse(favorites);
+        }
 
-//         localStorage.setItem('favoriteActors', JSON.stringify(favorites));
-// rel_like(img)
+        let index = favorites.indexOf(person_id);
+
+        if (index === -1) {
+            favorites.push(person_id);
+            console.log(`delite`);
+        } else {
+            favorites.splice(index, 1);
+            console.log(`add`);
+        }
+
+        localStorage.setItem('favoriteActors', JSON.stringify(favorites));
+rel_like(img)
     
-//     }
-// }
+    }
+}
