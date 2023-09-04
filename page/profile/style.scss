@@ -4,11 +4,13 @@
   box-sizing: border-box;
   font-family: "Qanelas";
 }
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: #ffffff10 #00000020;
 }
+
 body {
   overflow-x: hidden;
   background: #1e2538;
@@ -18,10 +20,12 @@ body {
   &::-webkit-scrollbar {
     width: 8px;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: #ffffff10;
     border-radius: 5px;
   }
+
   &::-webkit-scrollbar-track {
     background-color: #00000020;
   }
@@ -35,6 +39,7 @@ body {
   background-position: center top;
   background-size: cover;
   transition: 0.5s ease-out;
+
   &::before {
     content: "";
     position: absolute;
@@ -52,6 +57,7 @@ img {
   width: 100%;
   height: 100%;
 }
+
 // .container {
 //   max-width: 1220px;
 //   margin: 0 auto;
@@ -64,6 +70,7 @@ img {
   gap: 6px;
   font-size: 40px;
   color: rgb(73, 210, 15);
+
   .content {
     width: 100%;
     height: auto;
@@ -71,12 +78,14 @@ img {
     background: #191e2e;
     padding: 30px 40px;
   }
+
   aside {
     ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 7px;
+
       li {
         display: flex;
         align-items: center;
@@ -86,7 +95,7 @@ img {
         cursor: pointer;
         border-radius: 10px;
         background: #191e2e;
-        padding: 30px;
+        padding: 20px;
 
         &.active {
           background: #3657cb;
@@ -98,11 +107,14 @@ img {
 
 .home {
   display: none;
+
   &.active {
     display: block;
   }
+
   width: 100%;
   height: 100%;
+
   &__header {
     display: flex;
     align-items: center;
@@ -113,6 +125,7 @@ img {
       font-size: 30px;
       font-weight: 900;
     }
+
     .setings {
       cursor: pointer;
       display: flex;
@@ -132,16 +145,20 @@ img {
     align-items: flex-start;
     gap: 30px;
     margin-top: 15px;
+
     .user-avatar {
       overflow: hidden;
+
       img {
         object-fit: cover;
       }
+
       min-width: 400px;
       height: 400px;
       background: #000;
       border-radius: 10px;
     }
+
     .user-info {
       h3 {
         text-transform: capitalize;
@@ -149,16 +166,19 @@ img {
         font-size: 50px;
         font-weight: 900;
       }
+
       .user-description {
         margin-top: 10px;
         color: rgba(255, 255, 255, 0.8);
         font-size: 17px;
         font-weight: 400;
       }
+
       .user-information {
         margin-top: 25px;
         translate: -100% 0;
         transition: 0.5s ease;
+
         &.active {
           translate: 0 0;
         }
@@ -169,7 +189,7 @@ img {
           display: flex;
           flex-direction: column;
           gap: 17px;
-          width: 500px;
+          width: 100%;
 
           li {
             display: grid;
@@ -180,14 +200,23 @@ img {
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+            overflow: hidden;
+            width: 100%;
+
+span{
+  width: 100px;
+
+}
 
             span:last-child {
               color: #f2f60f;
               font-weight: 400;
               transition: 0.5s ease;
+
               a {
                 color: #f2f60f;
               }
+
               &:hover {
                 color: #c3c622;
                 text-decoration: underline;
@@ -203,14 +232,17 @@ img {
 
 .movie {
   display: none;
+
   &.active {
     display: block;
   }
+
   .movies-wrapper {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+
     .wrapper-item {
       position: relative;
       border-radius: 10px;
@@ -226,9 +258,11 @@ img {
       &:hover {
         background: #202940;
       }
+
       .img-box {
         height: 100px;
         width: 80px;
+
         img {
           width: 100%;
           height: 100%;
@@ -237,16 +271,19 @@ img {
           border-radius: 5px;
         }
       }
+
       h3 {
         color: #fff;
         font-size: 20px;
         font-weight: 700;
       }
+
       h4 {
         color: rgba(255, 255, 255, 0.7);
         font-size: 14px;
         font-weight: 500;
       }
+
       .rating {
         position: absolute;
         right: 30px;
@@ -258,6 +295,7 @@ img {
         font-size: 16px;
         font-weight: 700;
       }
+
       .genres {
         color: #f2f60f;
         font-size: 12px;
@@ -269,15 +307,18 @@ img {
 
 .actor {
   display: none;
+
   .actors-wrapper {
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
   }
+
   &.active {
     display: block !important;
   }
+
   &__header {
     display: flex;
     align-items: center;
@@ -303,15 +344,18 @@ img {
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
+
       &:hover {
         background: #00000040;
       }
+
       svg {
         width: 15px;
         margin-bottom: -2px;
       }
     }
   }
+
   h3 {
     margin-top: 16px;
     color: #fff;
@@ -319,6 +363,7 @@ img {
     font-weight: 600;
     margin-bottom: 20px;
   }
+
   .starring__content {
     margin-top: 25px;
     min-height: 500px;
@@ -334,26 +379,32 @@ img {
         height: 230px;
         margin-bottom: 8px;
         transition: 0.5s ease;
+
         img {
           border-radius: 5px;
           object-fit: cover;
         }
+
         &:hover {
           opacity: 0.6;
         }
       }
+
       span {
         display: block;
         color: #fff;
         font-size: 18px;
         font-weight: 700;
+
         &:first-child {
           cursor: pointer;
           transition: 0.5s ease;
+
           &:hover {
             opacity: 0.9;
           }
         }
+
         &:last-child {
           margin-top: 3px;
           color: #f2f60f;
@@ -363,10 +414,12 @@ img {
       }
     }
   }
+
   .posters-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+
     div {
       height: 380px;
       position: relative;
@@ -374,6 +427,7 @@ img {
       background-position: center;
       background-repeat: no-repeat;
       border-radius: 10px;
+
       &:last-child {
         span {
           position: absolute;
@@ -385,6 +439,7 @@ img {
           font-size: 40px;
           font-weight: 700;
         }
+
         div {
           border-radius: 5px;
           position: absolute;
@@ -398,4 +453,60 @@ img {
       }
     }
   }
+}
+
+@media (max-width: 1100px) {
+  .home__about-user {
+    flex-direction: column;
+  }
+.wrapper{
+  flex-direction: column;
+  ul {
+    display: grid !important;
+    // grid-template-columns:  repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(60px, 70px));
+  }
+}
+  .user-avatar {
+    min-width: 40px !important;
+    height: 40px !important;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .user-description {
+    flex-wrap: wrap;
+    width: 300px;
+  }
+  .information-list{
+    width: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .user-description {
+    flex-wrap: wrap;
+    overflow-y:scroll ;
+    width: 200px;
+    // text-overflow: ellipsis;
+  }
+.information-list{
+  grid-template-columns: 1fr !important;
+}
+
+.wrapper-item{
+  flex-direction: column;
+  padding-right: 0 !important;
+}
+.rating{
+  left: 40px;
+  right: auto !important;
+}
+.wrapper-item div{
+  width: 100% !important;
+}
+
 }
